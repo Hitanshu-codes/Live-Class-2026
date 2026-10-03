@@ -112,3 +112,24 @@ NameError: name 'ToolAnnotations' is not defined
 
 [10/03/26 08:42:01] INFO     Starting MCP server 'CineBot' with transport.py:242
                              transport 'stdio'                                  
+
+
+╭──────────────────────────────────────────────────────────────────────────────╮
+│                                                                              │
+│                                                                              │
+│                         ▄▀▀ ▄▀█ █▀▀ ▀█▀ █▀▄▀█ █▀▀ █▀█                        │
+│                         █▀  █▀█ ▄▄█  █  █ ▀ █ █▄▄ █▀▀                        │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                FastMCP 4.0.10                                │
+│                            https://gofastmcp.com                             │
+│                                                                              │
+│                  🖥  Server:      CineBot, 4.0.10                             │
+│                  🚀 Deploy free: https://horizon.prefect.io                  │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+
+[10/03/26 10:46:13] INFO     Starting MCP server 'CineBot' with transport.py:242
+                             transport 'stdio'                                  
