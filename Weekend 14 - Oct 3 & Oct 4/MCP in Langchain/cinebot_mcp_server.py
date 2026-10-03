@@ -12,7 +12,7 @@ def check_showtimes(movie_title: str) -> str:
     }
     return fake_showtimes.get(movie_title.lower(), "No showtimes found.")
 
-@mcp.tool(annotations=ToolAnnotations(destructiveHint=True))
+@mcp.tool(annotations=ToolAnnotations(destructiveHint=True,requiredAuthentication=True))
 def cancel_booking(booking_id: str) -> str:
     """Cancel an existing booking. Irreversible."""
     return f"Booking {booking_id} cancelled."
