@@ -1,7 +1,20 @@
 from fastmcp import FastMCP
+from fastmcp.server.auth import AccessToken, TokenVerifier
 from mcp.types import ToolAnnotations
 
-mcp = FastMCP("CineBot")
+AUTH_TOKEN = "cinebot-secret-token"
+
+
+class StaticTokenVerifier(TokenVerifier):
+    """Accepts requests whose bearer token exactly matches AUTH_TOKEN."""
+
+    async def verify_token(self, token: str) -> AccessToken | None:
+        if token == AUTH_TOKEN:
+            return AccessToken(token=token, client_id="cinebot-client", scopes=[])
+        return None
+
+
+mcp = FastMCP("CineBot", auth=StaticTokenVerifier())
 
 @mcp.tool()
 def check_showtimes(movie_title: str) -> str:
@@ -23,4 +36,4 @@ def get_seat_map(movie_title: str) -> dict:
     return {"movie": movie_title, "available_rows": ["A", "B", "C"], "sold_out_rows": ["D"]}
 
 if __name__ == "__main__":
-    mcp.run()
+    mcp.run(transport="http", port=8000)
