@@ -11,5 +11,17 @@ def check_showtimes(movie_title: str) -> str:
     }
     return fake_showtimes.get(movie_title.lower(), "No showtimes found.")
 
+
+@mcp.tool(annotations=ToolAnnotations(destructiveHint=True))
+def cancel_booking(booking_id: str) -> str:
+    """Cancel an existing booking. Irreversible."""
+    return f"Booking {booking_id} cancelled."
+
+@mcp.tool()
+def get_seat_map(movie_title: str) -> dict:
+    """Get the seat map for a movie -- returns structured data, not just text."""
+    return {"movie": movie_title, "available_rows": ["A", "B", "C"], "sold_out_rows": ["D"]}
+
+
 if __name__ == "__main__":
     mcp.run()
